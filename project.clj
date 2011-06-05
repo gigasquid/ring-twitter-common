@@ -9,5 +9,6 @@
                  [clojure-twitter "1.2.5"]
                  [compojure "0.6.2"]]
   :dev-dependencies [[lein-ring "0.4.0"]
-                     [swank-clojure "1.2.1"]]
+                     [swank-clojure "1.2.1"]
+                     [midje "1.1.1"]]
   :ring {:handler ring-twitter-common.core/app})

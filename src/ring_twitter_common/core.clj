@@ -2,7 +2,7 @@
   (:use ring.util.response
         ring.adapter.jetty
         (hiccup form-helpers page-helpers core)
-        clojure-twitter-in-common.core
+        ring-twitter-common.incommon
         compojure.core)
   (:require [compojure.route :as route]
             [compojure.handler :as handler]))

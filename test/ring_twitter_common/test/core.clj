@@ -1,5 +1,5 @@
 (ns ring-twitter-common.test.core
-  (:use [ring-on-heroku.core])
+  (:use [ring-twitter-common.core] :reload)
   (:use [clojure.test]))
 
 (deftest replace-me ;; FIXME: write
