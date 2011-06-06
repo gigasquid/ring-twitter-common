@@ -15,15 +15,17 @@
     (include-css "/css/ring-twitter-common.css")]
    [:div#content
     [:h1 "Twitter Followers In Common"]
-    [:p "Find out the followers in common between two usernames"]
+    [:h3 "Find out the followers in common between two Twitter users"]
      (form-to {:id "usernames-submission"} [:post "/incommon"]
-            (label :title "Twitter Username #1")
-            (text-field "user1")
-            (label :title "Twitter Username #2")
-            (text-field "user2")
+            [:span#user1.user (label :title "Twitter Username #1")
+              (text-field "user1")]
+            [:span#user2.user (label :title "Twitter Username #2")
+             (text-field "user2")]
+            [:br]
             [:button.large {:id "run-button" :type "submit"} "Submit"])
     [:div#footer
-     [:p "Powered by Clojure Compojure on Heroku!"]]]))
+     [:p "Powered by Clojure Compojure on Heroku Cedar. Checkout the code on "
+      [:a {:href "github"} "github"]]]]))
 
 (defn get-followers-in-common [name1 name2]
   (followers-in-common name1 name2))
