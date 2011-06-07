@@ -20,6 +20,19 @@ body {
   position: relative;
 }
 
+#top{
+  margin: 20px;
+}
+
+#top-title{
+  color: #0a5860;
+  font-size: 45px;
+  font-weight: bold;
+}
+
+img{
+  vertical-align: middle;
+}
 
 h1 {
   background-color: #0a5860;

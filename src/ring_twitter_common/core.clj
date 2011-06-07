@@ -15,7 +15,9 @@
     (include-css "/css/ring-twitter-common.css")
     (include-js "http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js")
     (include-js "/script/ring-twitter-common.js")]
-   [:h1 "Twitter Followers In Common"]
+   [:div#top
+    [:img#logo {:src "/image/incommon.png"}]
+    [:span#top-title "Twitter Followers In Common"]]
    [:div#content
     [:h3 "Find out the how many of the followers that two Twitter users have in common"]
     [:div#form
