@@ -9,26 +9,29 @@ body {
 }
 
 #content {
-   width: 90%;
-   margin: 5px auto;
-   padding: 5px 0px 5px 0px;
-   text-align: left;
-   background-color: #fff;
-   overflow: auto;
-   -moz-border-radius: 15px;
-   border-radius: 15px;
-   position: relative;
+  width: 90%;
+  margin: 5px auto;
+  padding: 5px 0px 5px 0px;
+  text-align: left;
+  background-color: #fff;
+  overflow: auto;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  position: relative;
 }
+
 
 h1 {
   background-color: #0a5860;
   color: #fff;
   text-align: center;
+  padding-bottom: 25px;
+  padding-top: 25px;
 }
 
 h3 {
-  margin-left: 15px;
-  margin-bottom: 15px;
+  margin-bottom: 15;
+  text-align: center;
 }
 
 .user{

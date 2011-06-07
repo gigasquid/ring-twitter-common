@@ -11,19 +11,20 @@
 (defn main-page []
   (html
    [:head
-    [:title "Twitter Followers In Common"]
+    [:title "Five Twitter Followers In Common"]
     (include-css "/css/ring-twitter-common.css")
     (include-js "http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js")
     (include-js "/script/ring-twitter-common.js")]
+   [:h1 "Twitter Followers In Common"]
    [:div#content
-    [:h1 "Twitter Followers In Common"]
     [:h3 "Find out the followers in common between two Twitter users"]
+    [:div#form
      [:span#user1.user (label :title "Twitter Username #1")
               (text-field "user1text")]
             [:span#user2.user (label :title "Twitter Username #2")
              (text-field "user2text")]
             [:br]
-            [:button.large {:id "run-button" :type "submit"} "Submit"]
+            [:button.large {:id "run-button" :type "submit"} "Submit"]]
     [:div#results]
     [:div#footer
      [:p "Powered by Clojure Compojure on Heroku Cedar. Checkout the code on "
@@ -31,21 +32,22 @@
 
 (defn get-followers-in-common [name1 name2]
   (try
-    (followers-in-common name1 name2)
+    (n-followers-in-common name1 name2 5)
     (catch java.lang.Exception e
       (do
         (println (.getMessage e))
-        ["Sorry about this ... but there is an error from Twitter" (.getMessage e)]))))
+        ["Sorry about this ... but there is an error from Twitter"
+         (.getMessage e)
+         (html [:div#raptor])]))))
 
 
 (defn incommon-page [user1 user2]
   (let [results (get-followers-in-common user1 user2)] (html
     [:div#incommon
      [:h3 (str "Followers in Common of " user1 " and " user2)]
-     (unordered-list results) ])))
-
-(incommon-page "carinmeier" "cincijs")
-
+     (if (empty? results)
+       [:p "We couldn't find any followers in common."]
+       (unordered-list results))])))
 
 (defroutes main-routes
   (GET "/" [] (main-page))
@@ -57,7 +59,6 @@
 
 (def app
   (handler/site main-routes))
-
 
 (defn -main []
   (let [port (Integer/parseInt (get (System/getenv) "PORT" "8080"))]

@@ -32,3 +32,7 @@
 (defn followers-in-common [username1 username2]
   (pmap get-screen-name-from-id (clojure.set/intersection (set (twitter/followers-of-name username1))
                                                           (set (twitter/followers-of-name username2)))))
+
+(defn n-followers-in-common [username1 username2 n]
+  (pmap get-screen-name-from-id (take n (clojure.set/intersection (set (twitter/followers-of-name username1))
+                                                           (set (twitter/followers-of-name username2))))))
