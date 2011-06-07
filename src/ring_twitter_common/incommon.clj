@@ -1,5 +1,7 @@
 (ns ring-twitter-common.incommon
-  (:use [clojure.contrib.logging])
+  (:use [clojure.contrib.logging]
+        [clojure.java.io :only [file]]
+        [clj-config.core :only [safely read-config]])
   (:require [twitter]  [oauth.client :as oauth]))
 
 
@@ -14,10 +16,14 @@
 
 (set-log-level! java.util.logging.Level/SEVERE)
 
-(def oauth-access-token 
-     "mNGQGY4H2CNHJyeVMgeeA")
-(def oauth-access-token-secret
-  "Brpf2a4140DmwRgoLsTq8YG4jqJ9BSjkBQYv4qXEVyQ")
+(def config-file (file (System/getProperty "user.dir") "config.clj"))
+
+(def config (safely read-config config-file))
+
+
+
+(def oauth-access-token (:oauth-access-token config))
+(def oauth-access-token-secret (:oauth-access-token-secret config))
 
 (def oauth-consumer (oauth/make-consumer oauth-access-token
                                          oauth-access-token-secret
