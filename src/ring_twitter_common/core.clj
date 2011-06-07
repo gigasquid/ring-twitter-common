@@ -11,13 +11,13 @@
 (defn main-page []
   (html
    [:head
-    [:title "Five Twitter Followers In Common"]
+    [:title "Twitter Followers In Common"]
     (include-css "/css/ring-twitter-common.css")
     (include-js "http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js")
     (include-js "/script/ring-twitter-common.js")]
    [:h1 "Twitter Followers In Common"]
    [:div#content
-    [:h3 "Find out the followers in common between two Twitter users"]
+    [:h3 "Find out the how many of the followers that two Twitter users have in common"]
     [:div#form
      [:span#user1.user (label :title "Twitter Username #1")
               (text-field "user1text")]
@@ -36,18 +36,25 @@
     (catch java.lang.Exception e
       (do
         (println (.getMessage e))
-        ["Sorry about this ... but there is an error from Twitter"
+        {:error
+         ["Sorry about this ... but there is an error from Twitter"
          (.getMessage e)
-         (html [:div#raptor])]))))
+         (html [:div#raptor])]}))))
 
 
 (defn incommon-page [user1 user2]
-  (let [results (get-followers-in-common user1 user2)] (html
+  (let [results (get-followers-in-common user1 user2)
+        size (:size results)
+        users (:users results)
+        error (:error results)]
+    (html
     [:div#incommon
-     [:h3 (str "Followers in Common of " user1 " and " user2)]
-     (if (empty? results)
+     [:h3 (str "Found " size  " Followers in Common between " user1 " and " user2)]
+     [:h3 "Here are five followers that they share"]
+     (when error (unordered-list error))
+     (if (empty? users)
        [:p "We couldn't find any followers in common."]
-       (unordered-list results))])))
+       (unordered-list users))])))
 
 (defroutes main-routes
   (GET "/" [] (main-page))
