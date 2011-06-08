@@ -10,7 +10,6 @@ To use, you need to set up a Twitter Application http://twitter.com/apps/new.
 Once you have your oauth-access-token and your
 oauth-access-token-secret, you need to set them up in the config.clj file
 
-See the test file for the example of the main  (followers-in-common "username1" "username2")
 
 ## Installation
 Install Leiningen https://github.com/technomancy/leiningen
