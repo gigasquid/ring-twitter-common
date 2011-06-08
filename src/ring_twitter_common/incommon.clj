@@ -20,8 +20,6 @@
 
 (def config (safely read-config config-file))
 
-
-
 (def oauth-access-token (:oauth-access-token config))
 (def oauth-access-token-secret (:oauth-access-token-secret config))
 

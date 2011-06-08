@@ -11,10 +11,11 @@ $(document).ready(function() {
     url: "/incommon",
     data: urlparams,
     success: function(msg){
+     console.log("here!")
      $("#results").html(msg);
-    },
-    failure: function(msg){
-     $("#results").html("Sorry something went horribly wrong :(");
+     console.log($("#results"));
+     $('#raptor').raptorize();
+     $('#raptor').trigger("click");
     }
  });
      

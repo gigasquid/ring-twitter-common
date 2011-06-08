@@ -13,8 +13,9 @@
    [:head
     [:title "Twitter Followers In Common"]
     (include-css "/css/ring-twitter-common.css")
-    (include-js "http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js")
-    (include-js "/script/ring-twitter-common.js")]
+    (include-js "/script/vendor/jquery-1.4.1.min.js")
+    (include-js "/script/ring-twitter-common.js")
+    (include-js "/script/vendor/Raptorize-Kit/jquery.raptorize.1.0.js")]
    [:div#top
     [:img#logo {:src "/image/incommon.png"}]
     [:span#top-title "Twitter Followers In Common"]]
@@ -41,7 +42,7 @@
         {:error
          ["Sorry about this ... but there is an error from Twitter"
          (.getMessage e)
-         (html [:div#raptor])]}))))
+         (html (link-to "/" [:div#raptor "Raptor Attack!!!"]))]}))))
 
 
 (defn incommon-page [user1 user2]
@@ -52,7 +53,7 @@
     (html
     [:div#incommon
      [:h3 (str "Found " size  " Followers in Common between " user1 " and " user2)]
-     [:h3 "Here are five followers that they share"]
+     [:h3 "Here are up to five followers that they share:"]
      (when error (unordered-list error))
      (if (empty? users)
        [:p "We couldn't find any followers in common."]
