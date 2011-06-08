@@ -12,14 +12,14 @@ oauth-access-token-secret, you need to set them up in the config.clj file
 
 
 ## Installation
-Install Leiningen https://github.com/technomancy/leiningen
-lein deps
-lein ring server
+- Install Leiningen https://github.com/technomancy/leiningen
+- lein deps
+- lein ring server
 
 ## Magic to Deploy to Heroku
 The magic is in the Procfile to kick off the app
-heroku create --stack cedar
-git push heroku master
+- heroku create --stack cedar
+- git push heroku master
 
 
 ## License
