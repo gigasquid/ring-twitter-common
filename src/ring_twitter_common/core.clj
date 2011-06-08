@@ -31,7 +31,7 @@
     [:div#results]
     [:div#footer
      [:p "Powered by Clojure Compojure on Heroku Cedar. Checkout the code on "
-      [:a {:href "github"} "github"]]]]))
+      [:a {:href "https://github.com/gigasquid/ring-twitter-common"} "github"]]]]))
 
 (defn get-followers-in-common [name1 name2]
   (try
