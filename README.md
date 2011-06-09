@@ -1,5 +1,3 @@
-# ring-twitter-common
-
 ## [http://ring-twitter-common.herokuapp.com/](http://ring-twitter-common.herokuapp.com/)
 
 
