@@ -1,4 +1,3 @@
-
 # ring-twitter-common
 
 ## [http://ring-twitter-common.herokuapp.com/](http://ring-twitter-common.herokuapp.com/)
@@ -21,8 +20,8 @@ oauth-access-token-secret, you need to set them up in the config.clj file
 
 ## Magic to Deploy to Heroku
 The magic is in the Procfile to kick off the app
-* heroku create --stack cedar
-* git push heroku master
+- heroku create --stack cedar
+- git push heroku master
 
 
 ## License
