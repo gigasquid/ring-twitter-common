@@ -19,7 +19,7 @@ oauth-access-token-secret, you need to set them up in the config.clj file
 - lein ring server
 
 ## Magic to Deploy to Heroku
-The magic is in the Procfile to kick off the app
+- The magic is in the Procfile to kick off the app
 - heroku create --stack cedar
 - git push heroku master
 
